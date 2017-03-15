@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block test %}
+    <div class="container starter-template" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <div class="col-lg-3">
+                <form action="" method="post">{% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" class="btn btn-default">
+                </form>
+            </div>
+            <div class="col-lg-9">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

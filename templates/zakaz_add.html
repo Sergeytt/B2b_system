@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block zakaz_add %}
+    <div>
+		<h2>
+			Страница заказа
+		</h2>
+	</div>
+	<div>
+		<form action="" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<div>
+			<button type="submit">Отправить</button>
+		</div>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block zakaz_detail %}
+    <div>
+		<h2>
+			Информация о заказе
+		</h2>
+	</div>
+	<div>
+		{{ tovar.name }}
+		{{ form.as_p }}
+	</div>
+{%  endblock %}

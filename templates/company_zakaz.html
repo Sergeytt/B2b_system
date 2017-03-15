@@ -1,0 +1,17 @@
+<html>
+	<div>
+		{% for i in zakaz %}
+		{{ i.id }}
+		{{ i.create_at }} 
+		<a href="zakaz_detail/{{ i.id }}">{{ i.company }} </a>
+		{{ i.score }} 
+		{{ i.code }} 
+		{{ i.name }} 
+		{{ i.col }} 
+		{{ i.price }} 
+		{{ i.price_sel }} 
+		{{ i.manager }} 
+		{{ i.status }} <br>
+		{%endfor%}
+	</div>
+</html>

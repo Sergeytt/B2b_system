@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block contaner %}
+	<div class="container starter-template">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>№ п/п</th>
+                        <th>Дата создания</th>
+                        <th>Дата доставки</th>
+                        <th>Компания</th>
+                        <th>Адрес доставки</th>
+                        <th>Счет</th>
+                        <th>Примечание</th>
+                        <th>Менеджер</th>
+                    </tr>
+                    </thead>
+                    {% for objects in object_list %}
+                        <tr>
+                            <td>{{ forloop.counter }}.</td>
+                            <td>{{ objects.create_at }}</td>
+                            <td>{{ objects.data_dostavki }}</td>
+                            <td>{{ objects.company }}</td>
+                            <td>{{ objects.adress }}</td>
+                            <td>{{ objects.score }}</td>
+                            <td>{{ objects.note }}</td>
+                            <td>{{ objects.manager }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <form action="add">
+		<input class="btn btn-default" type="submit" value="Добавить">
+	</form>
+{% endblock %}
