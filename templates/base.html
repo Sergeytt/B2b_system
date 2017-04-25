@@ -36,13 +36,16 @@
             <li><a href="/">Главная</a></li>
             <li><a href="/zakupki/">Закупки</a></li>
             <li><a href="/dostavka/">Доставка</a></li>
+            <li><a href="/blog/">Блог</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
+        {% block blog %}{% endblock %}
         {% block contaner %}{% endblock %}
+        {% block dostavka_detail %}{% endblock %}
         {% block test %}{% endblock %}
         {% block zakaz %}{% endblock %}
         {% block zakaz_add %}{% endblock %}

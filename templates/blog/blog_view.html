@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block blog %}
+<div class="container-fluid starter-template">
+    <div class="row">
+        <div class="col-lg-3'">
+            {% for i in blog_list %}
+                <p><a href="detail/{{ i.id }}">{{ i.name }}</a></p><br>
+                {{ i.text }}
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

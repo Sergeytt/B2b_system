@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block blog %}
+<div class="container-fluid starter-template">
+    <div class="row">
+        <div class="col-lg-3'">
+            {{ blog_list.id }}<br>
+            {{ blog_list.name }}<br>
+            {{ blog_list.text }}
+        </div>
+    </div>
+</div>
+{% endblock %}

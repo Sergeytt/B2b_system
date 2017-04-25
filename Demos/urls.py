@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', include('apps.urls')),
     url(r'^zakupki/', include('Zakupki.urls'), name = 'zakupki'),
     url(r'^dostavka/', include('Dostavka.urls'), name = 'dostavka'),
+    url(r'^blog/', include('Blog.urls'), name='blog'),
 ]

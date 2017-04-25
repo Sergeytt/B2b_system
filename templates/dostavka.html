@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
 
 {% block contaner %}
-	<div class="container starter-template">
+
+    <div class="container-fluid starter-template">
         <div class="row">
-            <div class="col-lg-12">
-                <table class="table table-bordered table-condensed">
+            <div class="col-lg-3 col-lg-offset-9">
+		        <form action="">
+			        <select name="test_field">
+				        <option value="id">id</option>
+			    	    <option value="company">компания</option>
+				        <option value="price">счет</option>
+			        </select>
+			        <input type="text" name="search" placeholder="Введите счет">
+			        <input type="submit">
+		        </form>
+             </div>
+        </div>
+	</div>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-hover table-condensed">
                     <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>№ п/п</th>
                         <th>Дата создания</th>
                         <th>Дата доставки</th>
@@ -15,25 +30,23 @@
                         <th>Счет</th>
                         <th>Примечание</th>
                         <th>Менеджер</th>
+                        <th>Статус</th>
                     </tr>
                     </thead>
-                    {% for objects in object_list %}
+                    {% for objects in all_dos %}
                         <tr>
-                            <td>{{ forloop.counter }}.</td>
-                            <td>{{ objects.create_at }}</td>
-                            <td>{{ objects.data_dostavki }}</td>
-                            <td>{{ objects.company }}</td>
+                            <td class="text-center">{{ forloop.counter }}.</td>
+                            <td>{{ objects.create_at | date:"d.m.Y" }}</td>
+                            <td>{{ objects.data_dostavki | date:"d.m.Y"}}</td>
+                            <td><a href="{% url 'dostavka:detail' objects.pk %}">{{ objects.company }}</a></td>
                             <td>{{ objects.adress }}</td>
                             <td>{{ objects.score }}</td>
                             <td>{{ objects.note }}</td>
                             <td>{{ objects.manager }}</td>
+                            <td></td>
                         </tr>
                     {% endfor %}
                 </table>
             </div>
         </div>
-    </div>
-    <form action="add">
-		<input class="btn btn-default" type="submit" value="Добавить">
-	</form>
 {% endblock %}

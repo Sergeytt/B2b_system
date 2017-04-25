@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block contaner %}
+    <div class="container-fluid starter-template">
+        <div class="row">
+            <div class="col-lg-1">
+                <form action="../">
+                    <input class="btn btn-default" type="submit" value="Назад">
+                </form>
+            </div>
+            <div class="col-lg-1 col-lg-offset-6">
+                <form action="../add">
+                    <input class="btn btn-default "type="submit" value="Добавить">
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form class="form-inline" action="">
+                <select class="form-control" name="test_field">
+				    <option value="id">id</option>
+			        <option value="company">компания</option>
+				    <option value="data_dostavki">дата доставки</option>
+			    </select>
+			        <input class="form-control" type="text" name="search" placeholder="Введите счет">
+			        <input  class="btn btn-default" type="submit">
+		        </form>
+             </div>
+         </div>
+        <br>
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tr class="text-center text-capitalize success">
+                        <td>№ п/п</td>
+                        <td>Дата доставки</td>
+                        <td>Компания</td>
+                        <td>Адрес доставки</td>
+                        <td>Счет</td>
+                        <td>Примечание</td>
+                        <td>Менеджер</td>
+                        <td>Дата создания</td>
+                    </tr>
+                     {%  for dostavka_item in dostavka %}
+                        <tr>
+                            <td class="text-center">{{ forloop.counter }}.</td>
+                            <td>{{ dostavka_item.data_dostavki | date:"d.m.Y"  }}</td>
+                            <td><a href="{% url 'dostavka:detail' dostavka_item.pk %}">{{ dostavka_item.company }}</a></td>
+                            <td>{{ dostavka_item.adress }}</td>
+                            <td>{{ dostavka_item.score }}</td>
+                            <td>{{ dostavka_item.note }}</td>
+                            <td>{{ dostavka_item.manager }}</td>
+                            <td>{{ dostavka_item.create_at | date:"d.m.Y" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-4 text-center">
+            {% if dostavka.has_previous %}
+                <a href="?page={{ dostavka.previous_page_number }}">←</a>
+            {% endif %}
+
+             {% for num in dostavka.paginator.page_range %}
+                {% if num == dostavka.number %}
+                    <span class="current"><b>{{ num }}</b></span>
+                {% else %}
+                    <a href="?page={{ num }}"> {{ num }}</a>
+                {% endif %}
+             {% endfor %}
+
+             {% if article_list.has_next %}
+                <a href="?page={{ article_list.next_page_number }}">→</a>
+             {% endif %}
+         </div>
+    </div>
+{% endblock %}

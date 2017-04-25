@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block dostavka_detail %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+            {{ object.company }}:
+        </div>
+        <div class="col-md-6">
+            {{ object.adress }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

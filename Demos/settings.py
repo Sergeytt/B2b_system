@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'Zakupki',
     'Dostavka',
     'apps',
+    'Blog',
+    'django_forms_bootstrap',
 ]
 
 MIDDLEWARE = [
