@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^$', DostavkaList.as_view(), name = 'list'),
     url(r'^today/$', Dostavka_today, name = 'today'),
     url(r'^add/$', Dostavka_add, name = 'add'),
-    url(r'^detail/(?P<pk>\d+)/$', DostavkaDetail.as_view(), name='detail'),
+    #url(r'^detail/(?P<pk>\d+)/$', DostavkaDetail.as_view(), name='detail'),
+    url(r'^detail/(?P<id>\d+)/$', DostavkaDetail, name='detail'),
 
 ]

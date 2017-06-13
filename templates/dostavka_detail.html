@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 
 {% block dostavka_detail %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-1">
-            {{ object.company }}:
-        </div>
-        <div class="col-md-6">
-            {{ object.adress }}
-        </div>
+<div class="container starter-template">
+        <form action="" method="post">{% csrf_token %}
+            <div>
+                {{ form.as_p }}
+            </div>
+                <div class="col-lg-2 col-lg-offset-11">
+                    <button type="submit" class="btn btn-default">Сохранить</button>
+                </div>
+        </form>
     </div>
-</div>
-
 {% endblock %}

@@ -71,9 +71,17 @@ def Dostavka_add(request):
 		form = DostavkaForm()
 	return render(request, 'dostavka_add.html', locals())
 
-class DostavkaDetail(DetailView):
-	template_name = 'dostavka_detail.html'
-	model = Dostavka
+#class DostavkaDetail(DetailView):
+#	template_name = 'dostavka_detail.html'
+#	model = Dostavka
+
+def DostavkaDetail(request, id):
+	info = Dostavka.objects.get(id = id)
+	form = DostavkaForm(request.POST or None, instance=info)
+	if form.is_valid():
+		form.save()
+		return redirect("/dostavka")
+	return render(request, 'dostavka_detail.html', locals())
 
 #	def dispatch(self, request, *args, **kwargs):
 #		dostavka = Dostavka.objects.get(id=id)
